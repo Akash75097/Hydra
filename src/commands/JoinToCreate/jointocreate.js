@@ -35,16 +35,16 @@ export default {
                         .setName("channel_name")
                         .setDescription("Select a template for naming temporary voice channels.")
                         .addChoices(
-                            { name: "{USERNAME}'s Room (Default)", value: "{USERNAME}'s Room" },
-                            { name: "{USERNAME}'s Channel", value: "{USERNAME}'s Channel" },
-                            { name: "{USERNAME}'s Lounge", value: "{USERNAME}'s Lounge" },
-                            { name: "{USERNAME}'s Space", value: "{USERNAME}'s Space" },
+                            { name: "{username}'s Room (Default)", value: "{username}'s Room" },
+                            { name: "{username}'s Channel", value: "{username}'s Channel" },
+                            { name: "{username}'s Lounge", value: "{username}'s Lounge" },
+                            { name: "{username}'s Space", value: "{username}'s Space" },
                             { name: "{displayName}'s Room", value: "{displayName}'s Room" },
-                            { name: "{USERNAME}'s VC", value: "{USERNAME}'s VC" },
-                            { name: "{USERNAME}'s Music Room", value: "{USERNAME}'s Music Room" },
-                            { name: "{USERNAME}'s Gaming Room", value: "{USERNAME}'s Gaming Room" },
-                            { name: "{USERNAME}'s Chat Room", value: "{USERNAME}'s Chat Room" },
-                            { name: "{USERNAME}'s Private Room", value: "{USERNAME}'s Private Room" }
+                            { name: "{username}'s VC", value: "{username}'s VC" },
+                            { name: "{username}'s Music Room", value: "{username}'s Music Room" },
+                            { name: "{username}'s Gaming Room", value: "{username}'s Gaming Room" },
+                            { name: "{username}'s Chat Room", value: "{username}'s Chat Room" },
+                            { name: "{username}'s Private Room", value: "{username}'s Private Room" }
                         )
                 )
                 .addIntegerOption((option) =>
@@ -119,7 +119,7 @@ export default {
 async function handleSetupSubcommand(interaction, client) {
     try {
         const category = interaction.options.getChannel('category');
-        const nameTemplate = interaction.options.getString('channel_name') || "{USERNAME}'s Room";
+        const nameTemplate = interaction.options.getString('channel_name') || "{username}'s Room";
         const userLimit = interaction.options.getInteger('user_limit') || 0;
         const bitrate = interaction.options.getInteger('bitrate') || 64;
         const guildId = interaction.guild.id;
@@ -239,7 +239,7 @@ async function handleConfigSubcommand(interaction, client) {
             .addFields(
                 {
                     name: 'Channel Name Template',
-                    value: `\`${channelConfig.nameTemplate || currentConfig.channelNameTemplate || "{USERNAME}'s Room"}\``,
+                    value: `\`${channelConfig.nameTemplate || currentConfig.channelNameTemplate || "{username}'s Room"}\``,
                     inline: false
                 },
                 {
@@ -367,21 +367,21 @@ async function handleConfigSubcommand(interaction, client) {
 async function handleNameTemplateModal(interaction, triggerChannel, currentConfig, client) {
     try {
         const TEMPLATE_OPTIONS = [
-            { label: "{USERNAME}'s Room (Default)", value: "{USERNAME}'s Room" },
-            { label: "{USERNAME}'s Channel",        value: "{USERNAME}'s Channel" },
-            { label: "{USERNAME}'s Lounge",         value: "{USERNAME}'s Lounge" },
-            { label: "{USERNAME}'s Space",          value: "{USERNAME}'s Space" },
+            { label: "{username}'s Room (Default)", value: "{username}'s Room" },
+            { label: "{username}'s Channel",        value: "{username}'s Channel" },
+            { label: "{username}'s Lounge",         value: "{username}'s Lounge" },
+            { label: "{username}'s Space",          value: "{username}'s Space" },
             { label: "{displayName}'s Room",        value: "{displayName}'s Room" },
-            { label: "{USERNAME}'s VC",             value: "{USERNAME}'s VC" },
-            { label: "{USERNAME}'s Music Room",  value: "{USERNAME}'s Music Room" },
-            { label: "{USERNAME}'s Gaming Room", value: "{USERNAME}'s Gaming Room" },
-            { label: "{USERNAME}'s Chat Room",   value: "{USERNAME}'s Chat Room" },
-            { label: "{USERNAME}'s Private Room",   value: "{USERNAME}'s Private Room" },
+            { label: "{username}'s VC",             value: "{username}'s VC" },
+            { label: "{username}'s Music Room",  value: "{username}'s Music Room" },
+            { label: "{username}'s Gaming Room", value: "{username}'s Gaming Room" },
+            { label: "{username}'s Chat Room",   value: "{username}'s Chat Room" },
+            { label: "{username}'s Private Room",   value: "{username}'s Private Room" },
         ];
 
         const currentTemplate = currentConfig.channelConfig?.nameTemplate
             || currentConfig.channelNameTemplate
-            || "{USERNAME}'s Room";
+            || "{username}'s Room";
 
         const templateSelect = new StringSelectMenuBuilder()
             .setCustomId('template')
