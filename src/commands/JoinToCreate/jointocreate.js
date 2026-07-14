@@ -369,7 +369,7 @@ async function handleNameTemplateModal(interaction, triggerChannel, currentConfi
         const TEMPLATE_OPTIONS = [
             { label: "{username}'s Room (Default)", value: "{username}'s Room" },
             { label: "{username}'s Channel",        value: "{username}'s Channel" },
-            { label: "{username}'s Lounge",         value: "{username}'s Lounge" },
+            { label: "{username}'s Lounge",         value: "{USERNAME}'s Lounge" },
             { label: "{username}'s Space",          value: "{username}'s Space" },
             { label: "{displayName}'s Room",        value: "{displayName}'s Room" },
             { label: "{username}'s VC",             value: "{username}'s VC" },
